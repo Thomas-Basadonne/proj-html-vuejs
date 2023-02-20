@@ -37,3 +37,24 @@
   background-color: black;
 }
 /* +++++ */
+
+footer {
+  background-color: black;
+  color: lightgrey;
+}
+
+.logo-footer {
+  width: 200px;
+  padding-bottom: 1rem;
+}
+
+.social {
+  font-size: 1.5rem;
+}
+
+.social i {
+  border: 1px solid gray;
+  text-align: center;
+  margin: 1rem;
+  padding: 10px;
+}
