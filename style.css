@@ -17,3 +17,15 @@
   top: 0;
   left: 0;
 }
+
+/* corsi */
+
+.corsi {
+  margin-top: 20rem;
+}
+
+.training-img {
+  border-radius: 0;
+  filter: opacity(60%);
+  border: 10px solid black;
+}
