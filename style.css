@@ -1,0 +1,19 @@
+/* immagini sovrapposte */
+
+.CTA-img {
+  position: relative;
+  padding: 0;
+}
+.CTA-img img.sfondo {
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.CTA-img img.sopra {
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
