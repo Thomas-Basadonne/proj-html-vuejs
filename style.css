@@ -7,14 +7,14 @@
     to bottom,
     var(--grey-bg) 0px,
     var(--grey-bg) 25vh,
-    var(--lighter-bg) 25vh,
-    var(--lighter-bg) 100vh
+    var(--light-bg) 25vh,
+    var(--light-bg) 100vh
   );
   --packs-bg: linear-gradient(
     175deg,
-    var(--dark-bg) 0px 35vh,
-    var(--dark-bg) 35vh,
-    var(--lighter-bg) 35vh,
+    var(--dark-bg) 0px 25vh,
+    var(--dark-bg) 25vh,
+    var(--lighter-bg) 25vh,
     var(--lighter-bg) 100vh
   );
 }
@@ -28,6 +28,12 @@ img {
 /* header */
 header {
   background-color: var(--light-bg);
+}
+
+.header-svg {
+  width: 50px;
+  height: 50px;
+  fill: var(--light-bg);
 }
 
 /* JUMBO */
@@ -101,6 +107,11 @@ header {
   left: 0;
 }
 
+.icon-svg {
+  width: 15%;
+  height: 15%;
+}
+
 /* corsi */
 
 .corsi {
@@ -113,6 +124,26 @@ header {
   border: 15px solid black;
 }
 
+.card-corso {
+  position: relative;
+}
+
+.view-label {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 90%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: 900;
+  padding: 10px 15px;
+  background-color: #000000;
+}
+
+.card-corso:hover .view-label {
+  opacity: 1;
+}
 /* debug */
 .mm {
   min-height: 50px;
@@ -143,14 +174,25 @@ header {
 }
 
 .trainers-card {
+  cursor: pointer;
   border: 10px solid var(--grey-bg);
 }
 
-.trainers-card > img {
+.trainers-img {
   height: 200px;
   width: auto;
   object-fit: cover;
   object-position: top;
+
+  opacity: 1;
+  display: block;
+
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.trainers-img-container:hover .trainers-img {
+  opacity: 0.5;
 }
 
 /* price */
@@ -165,6 +207,10 @@ header {
 footer {
   background-color: black;
   color: lightgrey;
+}
+
+footer h3 {
+  color: var(--lighter-bg);
 }
 
 .logo-footer {
