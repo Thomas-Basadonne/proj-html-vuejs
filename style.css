@@ -1,3 +1,86 @@
+:root {
+  --dark-bg: #000000;
+  --light-bg: #fbfbfb;
+  --lighter-bg: #ffffff;
+  --grey-bg: #f5f5f5;
+  --expert-bg: linear-gradient(
+    to bottom,
+    var(--grey-bg) 0px,
+    var(--grey-bg) 25vh,
+    var(--lighter-bg) 25vh,
+    var(--lighter-bg) 100vh
+  );
+  --packs-bg: linear-gradient(
+    175deg,
+    var(--dark-bg) 0px 35vh,
+    var(--dark-bg) 35vh,
+    var(--lighter-bg) 35vh,
+    var(--lighter-bg) 100vh
+  );
+}
+p {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+}
+/* header */
+header {
+  background-color: var(--light-bg);
+}
+
+/* JUMBO */
+.jumbo-text {
+  width: 25%;
+  font-weight: 900;
+  color: var(--light-bg);
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+.jumbo-text > h1 {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.btn-jumbo {
+  background-color: var(--dark-bg);
+}
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  top: 55%;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  top: 55%;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 /* immagini sovrapposte */
 
 .CTA-img {
@@ -27,17 +110,58 @@
 .training-img {
   border-radius: 0;
   filter: opacity(60%);
-  border: 10px solid black;
+  border: 15px solid black;
 }
 
 /* debug */
 .mm {
+  min-height: 50px;
+  max-width: 150px;
   color: aliceblue;
-  fill: currentColor;
-  background-color: black;
+  background-color: rgb(255, 0, 0);
 }
 /* +++++ */
+/* EVENTS */
+.event-btn {
+  padding: 3px 7px;
+  border: none;
+  font-size: 0.8rem;
+  color: rgb(112, 107, 107);
+}
 
+.event-text {
+  font-size: 0.8rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  background-color: var(--grey-bg);
+}
+/* TEAM TRAINERS*/
+.trainers-section {
+  background-image: var(--expert-bg);
+}
+
+.trainers-card {
+  border: 10px solid var(--grey-bg);
+}
+
+.trainers-card > img {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* price */
+.card-price {
+  background-image: var(--packs-bg);
+}
+
+.card-price-text {
+  color: var(--light-bg);
+}
+/* FOOTER */
 footer {
   background-color: black;
   color: lightgrey;

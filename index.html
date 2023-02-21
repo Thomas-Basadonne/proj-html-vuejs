@@ -50,9 +50,10 @@
     <title>Gobike</title>
   </head>
   <body>
+    <div id="app">
     <!--------------------------- HEADER ---------------------------->
-    <header class="container">
-      <nav class="navbar navbar-expand-lg bg-light">
+    <header>
+      <nav class="container navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <!-- LOGO -->
           <a class="navbar-brand" href="#">
@@ -128,23 +129,25 @@
     <!----------------------------------------------------------------------->
 
     <!------------------------------ JUMBOTRON ------------------------------>
-    <jumbotron>
-      <div class="container">
-        <i class="fa-solid fa-chevron-left"></i>
+    <jumbotron class="position-relative pb-5">
+      <img :src="jumbo[activeImage].image">
+      
         <div class="jumbo-text">
-          <h1>Professional Cycling Club</h1>
-          <p>Learn cycling from the pros.</p>
-          <button class="btn btn-dark" type="submit">
+          <h1>{{jumbo[activeImage].title}}</h1>
+          <p class="pb-3">{{jumbo[activeImage].text}}</p>
+          <button class="btn-jumbo btn btn-dark" type="submit">
             Learn More <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
-        <i class="fa-solid fa-chevron-right"></i>
-      </div>
+
+        <i class="fa-solid fa-chevron-left prev"  @click="prevImage()"></i>
+        <i class="fa-solid fa-chevron-right next" @click="nextImage()"></i>
+      
     </jumbotron>
     <!----------------------------------------------------------------------->
 
     <!------------------------------ CALL TO ACTION ------------------------------>
-    <section class="container-sm">
+    <section class="container mt-5 pt-5 w-70">
       <div class="row justify-content-around gx-5">
         <!-- COLL IMG -->
         <div class="col-6">
@@ -160,8 +163,7 @@
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
               distinctio eius vitae iste aliquid harum, quae, nulla quaerat
-              voluptatum asperiores doloribus reiciendis exercitationem
-              consequuntur neque nostrum quos ipsum laborum iure.
+              voluptatum asperiores.
             </p>
             <img src="./img/divider.jpg" alt="divider" />
             <div>
@@ -195,59 +197,94 @@
         <h2 class="fw-bold">Our Professional Cycling Trainings</h2>
         <p class="text-muted">Learn from the mountain biking expert.</p>
       </div>
-      <!-- cards -->
-      <div class="container gx-5 row d-flex justify-content-center">
-        <div class="col-3">
-          <div class="card text-bg-dark">
-            <img
-              src="./img/training-box-1.jpg"
-              class="training-img card-img"
-              alt="..."
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title text-start fw-semibold">Riding Lessons</h5>
+      <!-- test -->
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row mx-0">
+                <div class="col-3">
+                  <div class="card text-bg-dark">
+                    <img
+                      src="./img/training-box-1.jpg"
+                      class="training-img card-img"
+                      alt="..."
+                    />
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-start fw-semibold">Riding Lessons</h5>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="col-3">
+                  <div class="card text-bg-dark">
+                    <img
+                      src="./img/training-box-2.jpg"
+                      class="training-img card-img"
+                      alt="..."
+                    />
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-start fw-semibold">Safe Driving</h5>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="col-3">
+                  <div class="card text-bg-dark">
+                    <img
+                      src="./img/training-box-3.jpg"
+                      class="training-img card-img"
+                      alt="..."
+                    />
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-start fw-semibold">Mountain Bike</h5>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="col-3">
+                  <div class="card text-bg-dark">
+                    <img
+                      src="./img/training-box-4.jpg"
+                      class="training-img card-img"
+                      alt="..."
+                    />
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-start fw-semibold">Trail Drive</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-3">
-          <div class="card text-bg-dark">
-            <img
-              src="./img/training-box-2.jpg"
-              class="training-img card-img"
-              alt="..."
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title text-start fw-semibold">Safe Driving</h5>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-3">
-          <div class="card text-bg-dark">
-            <img
-              src="./img/training-box-3.jpg"
-              class="training-img card-img"
-              alt="..."
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title text-start fw-semibold">Mountain Bike</h5>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row mx-0">
+                <div class="col-3">
+                  <div class="card text-bg-dark">
+                    <img
+                      src="./img/training-box-5.jpg"
+                      class="training-img card-img"
+                      alt="..."
+                    />
+                    <div class="card-img-overlay">
+                      <h5 class="card-title text-start fw-semibold">Riding Lessons</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="col-3">
-          <div class="card text-bg-dark">
-            <img
-              src="./img/training-box-4.jpg"
-              class="training-img card-img"
-              alt="..."
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title text-start fw-semibold">Trail Drive</h5>
-            </div>
-          </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
       </div>
 
       <div class="angle mt-5">
@@ -264,12 +301,13 @@
 
     <!------------------------------ EVENTI ------------------------------>
     <section class="container mt-5 pt-5">
-      <div class="text-center">
-        <h2 class="fw-bold">Don't Miss Our Events!</h2>
-        <p class="text-muted">Get the amazing cycling experience.</p>
+      <div class="events-header">
+          <div class="text-center">
+            <h2 class="fw-bold">Don't Miss Our Events!</h2>
+            <p class="text-muted">Get the amazing cycling experience.</p>
+          </div>
       </div>
-
-      <!-- cards -->
+     
       <div class="d-flex justify-content-between fs-3">
         <span>Events</span>
         <span>
@@ -278,22 +316,196 @@
         ></span>
       </div>
 
-      .row
+       <!-- cards -->
+      
+        <div class="row row-cols-3 gy-4 gx-5 mt-1 mb-5">
+
+          <div class="col ">
+            <div class="event-card card h-100" >
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">22</span><br>JUN</p>
+              </div>
+              <img src="./img/event1.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Toronto Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Toronto</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="event-card card h-100">
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">30</span><br>JUN</p>
+              </div>
+              <img src="./img/event2.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Instambul Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Instambul</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="event-card card h-100">
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">22</span><br>JUN</p>
+              </div>
+              <img src="./img/event3.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Paris Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Paris</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ">
+            <div class="event-card card h-100" >
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">25</span><br>JUN</p>
+              </div>
+              <img src="./img/event4.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">New Jersey Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> New Jersey</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="event-card card h-100">
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">28</span><br>JUN</p>
+              </div>
+              <img src="./img/event5.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">London Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> London</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="event-card card h-100">
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">29</span><br>JUN</p>
+              </div>
+              <img src="./img/event6.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kiev Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Kiev</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col ">
+            <div class="event-card card h-100" >
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">28</span><br>JUN</p>
+              </div>
+              <img src="./img/event7.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Colorado Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Colorado</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="event-card card h-100">
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">28</span><br>JUN</p>
+              </div>
+              <img src="./img/event8.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Amsterdam Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Amsterdam</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="event-card card h-100">
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">22</span><br>JUN</p>
+              </div>
+              <img src="./img/event9.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Toronto Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Toronto</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col ">
+            <div class="event-card card h-100" >
+              <div class="date position-absolute rounded px-3 py-2 mx-2 mt-2">
+                <p class="mb-0 text-center fw-bold lh-1"><span class="fs-5">26</span><br>JUN</p>
+              </div>
+              <img src="./img/event10.jpg" class="card-img-top " alt="event">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Paris Cycling Event 2023</h5>
+                <div class="event-text">
+                  <p class="card-text text-muted mb-0"><i class="fa-regular fa-clock"></i> 2023-06-22 @ - 203-08-11 @ 07:00</p>
+                  <p class="card-text text-muted"><i class="fa-solid fa-location-dot"></i> Paris</p>
+                </div>
+                <button class="event-btn mt-3">Bicycle Race</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
     <!-------------------------------------------------------------------->
 
     <!------------------------------ TEAM TRAINERS ------------------------------>
-    <section class="container mb-5 pb-5">
+  <div class="trainers-section">  
+    <section class="container pt-5 mb-5 pb-5">
       <div class="text-center">
         <h2 class="fw-bold">Our Expert Trainers</h2>
         <p class="text-muted">Learn to ride a bike from the experts.</p>
       </div>
       <!-- cards -->
-      <div class="d-flex justify-content-between">
-        <div class="card text-bg-dark" style="width: 18rem">
+    <div class="d-flex justify-content-between fw-bold">
+       <div class="trainers-card card text-bg-dark" style="width: 18rem">
           <img src="./img/biker1.jpg" class="card-img-top" alt="biker" />
           <div class="card-body text-center">
-            <h5 class="card-title">Michael Lee</h5>
+            <h5 class="card-title fw-bold">Michael Lee</h5>
             <p class="card-text fw-bold text-muted">Biker</p>
             <span>
               <i class="fa-brands fa-instagram"></i>
@@ -303,36 +515,36 @@
           </div>
         </div>
 
-        <div class="card text-bg-dark" style="width: 18rem">
-          <img src="./img/biker2.jpg" class="card-img-top" alt="biker" />
-          <div class="card-body text-center">
-            <h5 class="card-title">Michael Lee</h5>
-            <p class="card-text fw-bold text-muted">Biker</p>
-            <span
-              ><i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-facebook"></i
-            ></span>
-          </div>
-        </div>
-
-        <div class="card text-bg-dark" style="width: 18rem">
-          <img src="./img/biker3.jpg" class="card-img-top" alt="biker" />
-          <div class="card-body text-center">
-            <h5 class="card-title">Michael Lee</h5>
-            <p class="card-text fw-bold text-muted">Biker</p>
-            <span
-              ><i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-facebook"></i
-            ></span>
-          </div>
-        </div>
-
-        <div class="card text-bg-dark" style="width: 18rem">
+        <div class="trainers-card card text-bg-dark" style="width: 18rem">
           <img src="./img/biker4.jpg" class="card-img-top" alt="biker" />
           <div class="card-body text-center">
-            <h5 class="card-title">Michael Lee</h5>
+            <h5 class="card-title">Robert Lee</h5>
+            <p class="card-text fw-bold text-muted">Biker</p>
+            <span
+              ><i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-facebook"></i
+            ></span>
+          </div>
+        </div>
+
+        <div class="trainers-card card text-bg-dark" style="width: 18rem">
+          <img src="./img/biker3.jpg" class="card-img-top" alt="biker" />
+          <div class="card-body text-center">
+            <h5 class="card-title">John Doe</h5>
+            <p class="card-text fw-bold text-muted">Biker</p>
+            <span
+              ><i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-facebook"></i
+            ></span>
+          </div>
+        </div>
+
+        <div class="trainers-card card text-bg-dark" style="width: 18rem">
+          <img src="./img/biker2.jpg" class="card-img-top" alt="biker" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Emily Brown</h5>
             <p class="card-text fw-bold text-muted">Biker</p>
             <span
               ><i class="fa-brands fa-instagram"></i>
@@ -343,29 +555,94 @@
         </div>
       </div>
     </section>
+  </div>
     <!--------------------------------------------------------------------------->
 
     <!------------------------------ COSTO CORSI ------------------------------->
     <section class="container mb-5 pb-5">
+      <!-- header corsi -->
       <div class="text-center">
+
+        <!-- debugggggggggggggggggggggggggggggggggggggggggggg -->
         <img src="./img/free-fa-solid-900.svg-fonta.svg" alt="" class="mm" />
-        <h2 class="fw-bold">Our Expert Trainers</h2>
-        <p class="text-muted">Learn to ride a bike from the experts.</p>
+        <!-- debugggggggggggggggggggggggggggggggggggggggggggg -->
+
+        <h2 class="fw-bold">Special Packs</h2>
+        <p class="text-muted">Select pricing plan to get more.</p>
       </div>
-      <div class="row">
-        <div class="col-4">debug</div>
-        <div class="col-4">debug</div>
-        <div class="col-4">debug</div>
+
+      <!-- card corsi -->
+      <div class="row container mt-5 d-flex justify-content-between">
+        <div class="card-price col-3 px-5 shadow">
+          
+          <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5" >
+            <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
+            <h3 class="fw-bold mt-1 py-2">Basic</h3>
+            <p>Learn to ride a bike by the professionals.</p>
+          </div>
+          
+          <div class="card-price-list">
+            <ul class="list-unstyled text-center">
+              <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
+              <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
+              <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
+              <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
+              <li class="lh-lg py-2">✗ Free bikes for kids!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-price col-3 px-5 shadow">
+          
+          <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5">
+            <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
+            <h3 class="fw-bold mt-1 py-2">Basic</h3>
+            <p>Learn to ride a bike by the professionals.</p>
+          </div>
+          
+          <div class="card-price-list">
+            <ul class="list-unstyled text-center">
+              <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
+              <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
+              <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
+              <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
+              <li class="lh-lg py-2">✗ Free bikes for kids!</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-price col-3 px-5 shadow">
+          
+          <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5">
+            <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
+            <h3 class="fw-bold mt-1 py-2">Basic</h3>
+            <p>Learn to ride a bike by the professionals.</p>
+          </div>
+          
+          <div class="card-price-list">
+            <ul class="list-unstyled text-center">
+              <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
+              <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
+              <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
+              <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
+              <li class="lh-lg py-2">✗ Free bikes for kids!</li>
+            </ul>
+          </div>
+        </div>
+       
       </div>
     </section>
     <!-------------------------------------------------------------------------->
 
     <!----------------------------- BLOG SECTION ------------------------------->
     <section class="container mb-5 pb-5">
+      <!-- BLOG HEADER -->
       <div class="text-center mb-1 pb-1">
         <h2 class="fw-bold">Resent New & Articles</h2>
         <p class="text-muted">Important information about bike.</p>
       </div>
+
+      <!-- BLOG CARDS -->
       <div class="row">
         <div class="col-3">
           <div class="card" style="width: 18rem">
@@ -376,14 +653,14 @@
            />
            <span class="text-center">22.06.2023 - bike</span>
 
-           <div class="card-body">
+           <div class="card-body d-flex flex-column">
              <h5 class="card-title text-center fw-bold">
                Road bike or mountain bike?
              </h5>
              <p class="card-text fs-6 text-muted">
                Some quick example text to build on the card [...]
              </p>
-             <a href="#" class="btn btn-dark p-3 px-4 text-center">More</a>
+             <a href="#" class="btn btn-dark p-3 text-center mt-3 mx-5 ">More</a>
            </div>
           </div>
        </div>
@@ -397,14 +674,14 @@
              />
              <span class="text-center">22.06.2023 - bike</span>
  
-             <div class="card-body">
+             <div class="card-body d-flex flex-column">
                <h5 class="card-title text-center fw-bold">
-                 Road bike or mountain bike?
+                 What is mountain biking called?
                </h5>
                <p class="card-text fs-6 text-muted">
                  Some quick example text to build on the card [...]
                </p>
-               <a href="#" class="btn btn-dark p-3 px-4 text-center">More</a>
+               <a href="#" class="btn btn-dark p-3 text-center mt-3 mx-5">More</a>
              </div>
            </div>
        </div>
@@ -418,14 +695,14 @@
              />
              <span class="text-center">22.06.2023 - bike</span>
  
-             <div class="card-body">
+             <div class="card-body d-flex flex-column">
                <h5 class="card-title text-center fw-bold">
-                 Road bike or mountain bike?
+                 How much should you bicycle a day?
                </h5>
                <p class="card-text fs-6 text-muted">
                  Some quick example text to build on the card [...]
                </p>
-               <a href="#" class="btn btn-dark p-3 px-4 text-center">More</a>
+               <a href="#" class="btn btn-dark p-3 text-center mt-3 mx-5">More</a>
              </div>
            </div>
        </div>
@@ -439,14 +716,14 @@
              />
              <span class="text-center">22.06.2023 - bike</span>
  
-             <div class="card-body ">
+             <div class="card-body d-flex flex-column">
                <h5 class="card-title text-center fw-bold">
-                 Road bike or mountain bike?
+                 How long does it takes 5 km by bike?
                </h5>
                <p class="card-text fs-6 text-muted">
                  Some quick example text to build on the card [...]
                </p>
-               <a href="#" class="btn btn-dark p-3 px-4 text-center align-content-center">More</a>
+               <a href="#" class="btn btn-dark p-3 text-center mt-3 mx-5">More</a>
              </div>
         </div>
       </div>
@@ -459,9 +736,9 @@
       <div class="row">
         <div class="col-3">
           <img class="logo-footer" src="./img/logo-footer-gobike.png" alt="logo">
-          <p><i class="fa-solid fa-location-dot fs-2 pe-2"></i> New Jersey, USA</p>
-          <p><i class="fa-solid fa-phone fs-2 pe-2"></i> +1 (234) 567 89 10</p>
-          <p><i class="fa-regular fa-envelope fs-2 pe-2"></i> example@example.com</p>
+          <p><i class="fa-solid fa-location-dot fs-2 pe-2 lh-base"></i> New Jersey, USA</p>
+          <p><i class="fa-solid fa-phone fs-2 pe-2 lh-base"></i> +1 (234) 567 89 10</p>
+          <p><i class="fa-regular fa-envelope fs-2 pe-2 lh-base"></i> example@example.com</p>
           
           <div class="social row">
             <i class="fa-brands fa-instagram col-2 "></i>
@@ -471,7 +748,7 @@
         </div>
           <div class="col-5 mx-5 px-3">
             <h3 class="fs-2 pt-2">Join Our Newsletter</h3>
-            <p class="fs-6">Subscribe to receive useful information.</p>
+            <p class="fs-6 mb-5 pb-1">Subscribe to receive useful information.</p>
             <div class="d-flex flex-column">
               <input class="p-4" type="text" placeholder="Your Email Address">
               <button class="p-4" type="submit">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
@@ -482,12 +759,7 @@
               <div>
                 <h3>Trainings</h3>
                 <ul>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
+                  <li v-for="training in trainings">{{trainings}}</li>
                 </ul>
               </div>
               <div>
@@ -510,5 +782,6 @@
     </section>
   </footer> 
     <!-------------------------------------------------------------------------->
+  </div>
   </body>
 </html>
