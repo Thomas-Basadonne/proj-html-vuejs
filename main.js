@@ -35,7 +35,6 @@ createApp({
         },
       ],
       activeImage: 0,
-      hover: false,
     };
   },
   methods: {

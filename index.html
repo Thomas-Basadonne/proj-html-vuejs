@@ -67,15 +67,10 @@
 
           <!-- LISTA LINK -->
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <li class="nav-item" v-for="link in links">
+              <a class="nav-link active" aria-current="page" href="#">{{link}}</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >About Us</a
-              >
-            </li>
 
             <!-- TENDINA -->
             <li class="nav-item dropdown">
@@ -89,31 +84,10 @@
                 Trainings
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
+                <li  v-for="training in trainings"><a class="dropdown-item" href="#">{{training}}</a></li>
               </ul>
             </li>
             <!------>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Packages</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Blog</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Contact</a
-              >
-            </li>
           </ul>
 
           <!-- BUTTON -->
@@ -270,7 +244,7 @@
                       alt="..."
                     />
                     <div class="card-img-overlay">
-                      <h5 class="card-title text-start fw-semibold">Riding Lessons</h5>
+                      <h5 class="card-title text-start fw-semibold">Skills Lessons</h5>
                     </div>
                   </div>
                 </div>
@@ -746,7 +720,7 @@
             <i class="fa-brands fa-facebook col-2 "></i>
           </div>
         </div>
-          <div class="col-5 mx-5 px-3">
+          <div class="col-4 mx-5 px-3">
             <h3 class="fs-2 pt-2">Join Our Newsletter</h3>
             <p class="fs-6 mb-5 pb-1">Subscribe to receive useful information.</p>
             <div class="d-flex flex-column">
@@ -754,23 +728,18 @@
               <button class="p-4" type="submit">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
-          <div class="col-3 pt-2">
+          <div class="col-4 pt-2">
             <div class="row row-cols-2 gx-5">
               <div>
                 <h3>Trainings</h3>
-                <ul>
-                  <li v-for="training in trainings">{{trainings}}</li>
+                <ul class="lh-lg px-3">
+                  <li v-for="training in trainings">{{training}}</li>
                 </ul>
               </div>
               <div>
-                <h3>Trainings</h3>
-                <ul>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
-                  <li>elementi</li>
+                <h3>Quick Links</h3>
+                <ul  class="lh-lg px-3">
+                  <li  v-for="link in links">{{link}}</li>
                 </ul>
               </div>
             </div>
