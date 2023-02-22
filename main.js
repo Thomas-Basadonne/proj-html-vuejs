@@ -1,15 +1,43 @@
 const { createApp } = Vue;
+
 createApp({
   data() {
     return {
-      links: ["Home", "About Us", "Trainigns", "Packages", "Blog", "Contact"],
-      trainings: [
-        "Riding Lesson",
-        "Safe Driving",
-        "Mountain Bike",
-        "Trail Drive",
-        "Pedaling",
+      navLinks: [
+        { name: "Home", dropdownMenu: false },
+
+        {
+          name: "About Us",
+          dropdownMenu: false,
+        },
+
+        {
+          name: "Training",
+          dropdownMenu: true,
+          dropdowns: [
+            "Riding Lesson",
+            "Safe Driving",
+            "Mountain Bike",
+            "Trail Drive",
+            "Pedaling",
+          ],
+        },
+
+        {
+          name: "Packages",
+          dropdownMenu: false,
+        },
+
+        {
+          name: "Blog",
+          dropdownMenu: false,
+        },
+        {
+          name: "Contact",
+          dropdownMenu: false,
+        },
       ],
+
       jumbo: [
         {
           image: "img/slider-bike-4.jpg",
@@ -27,16 +55,11 @@ createApp({
           text: "Learn cycling from the Blog.",
         },
       ],
-      courses: [
-        {
-          image: "img/slider-bike-9.jpg",
-          title: "Ride with the Champions",
-          text: "National Mountain-Bike team.",
-        },
-      ],
+
       activeImage: 0,
     };
   },
+
   methods: {
     prevImage() {
       if (this.activeImage - 1 < 0) {

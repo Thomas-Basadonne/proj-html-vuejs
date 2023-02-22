@@ -51,11 +51,13 @@
   </head>
   <body>
     <div id="app">
+
     <!--------------------------- HEADER ---------------------------->
     <header>
-      <nav class="container navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <!-- LOGO -->
+      <nav>
+        <!-- Container -->
+        <div class="container navBar d-flex align-items-baseline py-2 mt-0">
+          <!-- Nav Logo -->
           <a class="navbar-brand" href="#">
             <img
               src="./img/logo-gobike.png"
@@ -64,35 +66,32 @@
               height="50"
             />
           </a>
-
-          <!-- LISTA LINK -->
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item" v-for="link in links">
-              <a class="nav-link active" aria-current="page" href="#">{{link}}</a>
-            </li>
-
-
-            <!-- TENDINA -->
-            <li class="nav-item dropdown">
+          <!-- Nav Links -->
+          <div class="header-nav-dropdown d-flex align-items-center flex-grow-1">
+            <ul class="nav-list d-flex align-items-center px-2" v-for="navLink in navLinks">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                v-show="navLink.dropdownMenu"
               >
-                Trainings
               </a>
-              <ul class="dropdown-menu">
-                <li  v-for="training in trainings"><a class="dropdown-item" href="#">{{training}}</a></li>
+              <li class="nav-item dropdown mx-2">{{ navLink.name }}</li>
+              
+              <ul class="dropdown-menu" >
+                <li>
+                  <a class="dropdown-item" href="#" v-for="drop in navLink.dropdowns">{{drop}}</a>
+                </li>
+                
               </ul>
-            </li>
-            <!------>
-          </ul>
+            </ul>
+          </div>
+          <!-- Nav Cart & Button -->
+          <form class="d-flex">
+            <i class="fa-solid fa-bars-staggered mt-4 me-3"></i>
 
-          <!-- BUTTON -->
-          <form class="d-flex" role="search">
-            <span class="navbar-toggler-icon mt-1 me-3"></span>
             <button class="btn btn-dark" type="submit">
               <img src="./img/helmet-svgrepo-com.svg" class="header-svg">
               Upcoming Events <i class="fa-solid fa-arrow-right"></i>
@@ -104,8 +103,8 @@
     <!----------------------------------------------------------------------->
 
     <!------------------------------ JUMBOTRON ------------------------------>
-    <jumbotron class="position-relative pb-5">
-      <img :src="jumbo[activeImage].image">
+    <section class="jumbotron position-relative pb-5">
+      <img :src="jumbo[activeImage].image" class="jumbo-img">
       
         <div class="jumbo-text">
           <h1>{{jumbo[activeImage].title}}</h1>
@@ -118,7 +117,7 @@
         <i class="fa-solid fa-chevron-left prev"  @click="prevImage()"></i>
         <i class="fa-solid fa-chevron-right next" @click="nextImage()"></i>
       
-    </jumbotron>
+    </section>
     <!----------------------------------------------------------------------->
 
     <!------------------------------ CALL TO ACTION ------------------------------>
@@ -304,9 +303,9 @@
       </div>
      
       <div class="d-flex justify-content-between fs-3">
-        <span>Events</span>
+        <span class="text-muted">Events</span>
         <span>
-          <i class="fa-regular fa-square-minus"></i>
+          <i class="fa-regular fa-square-minus pe-2"></i>
           <i class="fa-solid fa-bars"></i
         ></span>
       </div>
@@ -570,63 +569,93 @@
 
       <!-- card corsi -->
       <div class="row container mt-5 d-flex justify-content-between">
-        <div class="card-price col-3 px-5 shadow">
-          
-          <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5" >
-            <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
-            <h3 class="fw-bold mt-1 py-2">Basic</h3>
-            <p>Learn to ride a bike by the professionals.</p>
+        
+        <div class="card-price col-3 px-4 shadow">
+          <!-- CLASSE ATTIVA -->
+          <div class="feature">
+        
+            <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5" >
+              <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
+              <h3 class="fw-bold mt-1 py-2">Basic</h3>
+              <p>Learn to ride a bike by the professionals.</p>
+            </div>
+            
+            <div class="card-price-list">
+              <ul class="list-unstyled text-center">
+                <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
+                <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
+                <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
+                <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
+                <li class="lh-lg py-2">✗ Free bikes for kids!</li>
+              </ul>
+            </div>
+
+            <!-- CLASSE NASCOSTA -->
+            <div class="details">
+                <p class="fw-bold pb-4">BASIC <br> $1800</p>
+                <button class="btn btn-dark border border-light">Send Request!</button>
+            </div>
           </div>
           
-          <div class="card-price-list">
-            <ul class="list-unstyled text-center">
-              <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
-              <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
-              <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
-              <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
-              <li class="lh-lg py-2">✗ Free bikes for kids!</li>
-            </ul>
-          </div>
         </div>
 
-        <div class="card-price col-3 px-5 shadow">
-          
-          <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5">
-            <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
-            <h3 class="fw-bold mt-1 py-2">Standard</h3>
-            <p>Learn to ride a bike by the professionals.</p>
+        <div class="card-price col-3 px-4 shadow">
+          <!-- CLASSE ATTIVA -->
+          <div class="feature">
+        
+            <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5" >
+              <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
+              <h3 class="fw-bold mt-1 py-2">Standard</h3>
+              <p>Learn to ride a bike by the professionals.</p>
+            </div>
+            
+            <div class="card-price-list">
+              <ul class="list-unstyled text-center">
+                <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
+                <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
+                <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
+                <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
+                <li class="lh-lg py-2">✗ Free bikes for kids!</li>
+              </ul>
+            </div>
+
+            <!-- CLASSE NASCOSTA -->
+            <div class="details">
+                <p class="fw-bold pb-4">STANDARD <br> $2500</p>
+                <button class="btn btn-dark border border-light">Send Request!</button>
+            </div>
           </div>
           
-          <div class="card-price-list">
-            <ul class="list-unstyled text-center">
-              <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
-              <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
-              <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
-              <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
-              <li class="lh-lg py-2">✗ Free bikes for kids!</li>
-            </ul>
-          </div>
         </div>
 
-        <div class="card-price col-3 px-5 shadow">
-          
-          <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5">
-            <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
-            <h3 class="fw-bold mt-1 py-2">Premium</h3>
-            <p>Learn to ride a bike by the professionals.</p>
-          </div>
-          
-          <div class="card-price-list">
-            <ul class="list-unstyled text-center">
-              <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
-              <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
-              <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
-              <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
-              <li class="lh-lg py-2">✗ Free bikes for kids!</li>
-            </ul>
-          </div>
+
+        <div class="card-price col-3 px-4 shadow">
+          <!-- CLASSE ATTIVA -->
+          <div class="feature">
+        
+            <div class="card-price-text d-flex flex-column text-center pb-5 mb-5 mt-5" >
+              <img src="./img/logo-footer-gobike.png" alt="" class="w-50 align-self-center">
+              <h3 class="fw-bold mt-1 py-2">Premium</h3>
+              <p>Learn to ride a bike by the professionals.</p>
+            </div>
+            
+            <div class="card-price-list">
+              <ul class="list-unstyled text-center">
+                <li class="border-bottom lh-lg py-2">✓ Phone Mountainer Bike Training</li>
+                <li class="border-bottom lh-lg py-2">✓ Remote Excellent Bike Service</li>
+                <li class="border-bottom lh-lg py-2">✓ Onsite Safe Cycling training</li>
+                <li class="border-bottom lh-lg py-2">✗ Safety Helmet on bike</li>
+                <li class="lh-lg py-2">✗ Free bikes for kids!</li>
+              </ul>
+            </div>
+
+            <!-- CLASSE NASCOSTA -->
+            <div class="details">
+                <p class="fw-bold pb-4">PREMIUM <br> $5000</p>
+                <button class="btn btn-dark border border-light">Send Request!</button>
+            </div>
+          </div>        
         </div>
-       
       </div>
     </section>
     <!-------------------------------------------------------------------------->
@@ -755,14 +784,14 @@
             <div class="row row-cols-2 gx-5">
               <div>
                 <h3>Trainings</h3>
-                <ul class="lh-lg px-3">
-                  <li v-for="training in trainings">{{training}}</li>
+                <ul class="lh-lg px-3" v-for="navLink in navLinks">
+                  <li  v-for="drop in navLink.dropdowns">{{drop}}</li>
                 </ul>
               </div>
               <div>
                 <h3>Quick Links</h3>
                 <ul  class="lh-lg px-3">
-                  <li  v-for="link in links">{{link}}</li>
+                  <li  v-for="navLink in navLinks">{{navLink.name}}</li>
                 </ul>
               </div>
             </div>
