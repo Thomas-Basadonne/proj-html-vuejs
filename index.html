@@ -783,15 +783,20 @@
           <div class="col-4 pt-2">
             <div class="row row-cols-2 gx-5">
               <div>
-                <h3>Trainings</h3>
+                <h3 class="ps-4">Trainings</h3>
                 <ul class="lh-lg px-3" v-for="navLink in navLinks">
-                  <li  v-for="drop in navLink.dropdowns">{{drop}}</li>
+                  <li  v-for="drop in navLink.dropdowns"><i class="fa-solid fa-minus"></i> {{drop}}</li>
                 </ul>
               </div>
               <div>
-                <h3>Quick Links</h3>
-                <ul  class="lh-lg px-3">
-                  <li  v-for="navLink in navLinks">{{navLink.name}}</li>
+                <h3 class="ps-4">Quick Links</h3>
+                <ul  class="lh-lg px-3 mt-3">
+                  <!-- <li  v-for="navLink in navLinks">{{navLink.name}}</li> -->
+                  <li><i class="fa-solid fa-minus"></i> {{navLinks[0].name}}</li>
+                  <li><i class="fa-solid fa-minus"></i> {{navLinks[1].name}}</li>
+                  <li><i class="fa-solid fa-minus"></i> {{navLinks[3].name}}</li>
+                  <li><i class="fa-solid fa-minus"></i> {{navLinks[4].name}}</li>
+                  <li><i class="fa-solid fa-minus"></i> {{navLinks[5].name}}</li>
                 </ul>
               </div>
             </div>

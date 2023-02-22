@@ -243,6 +243,12 @@ footer h3 {
   padding: 10px;
 }
 
+footer li {
+  padding-left: 0.5rem;
+  list-style-type: none;
+  color: var(--lighter-bg);
+}
+
 /************************************************/
 .feature {
   position: relative;
