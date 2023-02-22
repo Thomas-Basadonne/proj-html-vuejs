@@ -165,6 +165,20 @@ img {
   opacity: 1;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  position: static;
+  display: block;
+  text-align: center;
+  opacity: 1;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--dark-bg);
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: #000000;
+}
 /* EVENTS */
 .event-btn {
   padding: 3px 7px;
